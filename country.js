@@ -6,14 +6,14 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((data) => data.json())
   .then((data) => {
     const country = data[0];
-    // console.log(country.languages);
+    console.log(country.name);
     countryDetails.innerHTML = `
     <div class="image"><img src=${country.flags.svg} alt="flag" /></div>
         <div class="details-container">
           <h2>${country.name.common}</h2>
           <div class="details">
             <p><b>Native Name:</b> ${
-              Object.values(country.name.nativeName)[0].official
+              Object.values(country.name.nativeName)[0].common
             }</p>
             <p><b>Population: </b> ${country.population.toLocaleString()}</p>
             <p><b>Region: </b> ${country.region}</p>
